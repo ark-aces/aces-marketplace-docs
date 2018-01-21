@@ -1,0 +1,737 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+     <link href="images/ark-red-favicon.png" rel="icon" type="image/png" />
+    <title>ACES Marketplace API Docs</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #303030;
+}
+.highlight .err {
+  color: #151515;
+  background-color: #ac4142;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #505050;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #d0d0d0;
+}
+.highlight .p, .highlight .pi {
+  color: #d0d0d0;
+}
+.highlight .gi {
+  color: #90a959;
+}
+.highlight .gd {
+  color: #ac4142;
+}
+.highlight .gh {
+  color: #6a9fb5;
+  background-color: #151515;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #aa759f;
+}
+.highlight .kc {
+  color: #d28445;
+}
+.highlight .kt {
+  color: #d28445;
+}
+.highlight .kd {
+  color: #d28445;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #90a959;
+}
+.highlight .sr {
+  color: #75b5aa;
+}
+.highlight .si {
+  color: #8f5536;
+}
+.highlight .se {
+  color: #8f5536;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #6a9fb5;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #90a959;
+}
+.highlight .ss {
+  color: #90a959;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;java&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/ark-red2.png" class="logo" alt="Ark red2" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">curl</a>
+              <a href="#" data-language-name="java">java</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc" class="toc-list-h1">
+          <li>
+                <a href="#aces-marketplace-api-docs" class="toc-h1 toc-link" data-title="ACES Marketplace API Docs">ACES Marketplace API Docs</a>
+          </li>
+          <li>
+                <a href="#health" class="toc-h1 toc-link" data-title="Health">Health</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-health" class="toc-h2 toc-link" data-title="Get Health">Get Health</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+                <a href="#listener-categories" class="toc-h1 toc-link" data-title="Listener Categories">Listener Categories</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-listener-categories" class="toc-h2 toc-link" data-title="Get Listener Categories">Get Listener Categories</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+                <a href="#listeners" class="toc-h1 toc-link" data-title="Listeners">Listeners</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#list-listeners" class="toc-h2 toc-link" data-title="List Listeners">List Listeners</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+                <a href="#service-categories" class="toc-h1 toc-link" data-title="Service Categories">Service Categories</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-service-categories" class="toc-h2 toc-link" data-title="Get Service Categories">Get Service Categories</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+                <a href="#services" class="toc-h1 toc-link" data-title="Services">Services</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#list-services" class="toc-h2 toc-link" data-title="List Services">List Services</a>
+                  </li>
+                  <li>
+                    <a href="#get-service-by-id" class="toc-h2 toc-link" data-title="Get Service by id">Get Service by id</a>
+                  </li>
+                  <li>
+                    <a href="#get-service-contracts-by-id" class="toc-h2 toc-link" data-title="Get Service Contracts by id">Get Service Contracts by id</a>
+                  </li>
+                  <li>
+                    <a href="#create-service-contract" class="toc-h2 toc-link" data-title="Create Service Contract.">Create Service Contract.</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+                <a href="#contracts" class="toc-h1 toc-link" data-title="Contracts">Contracts</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-service-contracts" class="toc-h2 toc-link" data-title="Get Service Contracts.">Get Service Contracts.</a>
+                  </li>
+                  <li>
+                    <a href="#get-contract" class="toc-h2 toc-link" data-title="Get Contract">Get Contract</a>
+                  </li>
+                  <li>
+                    <a href="#cancel-contract" class="toc-h2 toc-link" data-title="Cancel contract">Cancel contract</a>
+                  </li>
+                  <li>
+                    <a href="#create-ark-payment" class="toc-h2 toc-link" data-title="Create Ark Payment">Create Ark Payment</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+                <a href="#account" class="toc-h1 toc-link" data-title="Account">Account</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#list-account-users" class="toc-h2 toc-link" data-title="List Account Users">List Account Users</a>
+                  </li>
+                  <li>
+                    <a href="#get-ark-wallet" class="toc-h2 toc-link" data-title="Get Ark Wallet">Get Ark Wallet</a>
+                  </li>
+                  <li>
+                    <a href="#list-account-ark-wallet-transactions" class="toc-h2 toc-link" data-title="List Account Ark Wallet Transactions">List Account Ark Wallet Transactions</a>
+                  </li>
+                  <li>
+                    <a href="#list-account-listeners" class="toc-h2 toc-link" data-title="List Account Listeners">List Account Listeners</a>
+                  </li>
+                  <li>
+                    <a href="#create-listener" class="toc-h2 toc-link" data-title="Create Listener">Create Listener</a>
+                  </li>
+                  <li>
+                    <a href="#list-account-services" class="toc-h2 toc-link" data-title="List Account Services">List Account Services</a>
+                  </li>
+                  <li>
+                    <a href="#create-account-service" class="toc-h2 toc-link" data-title="Create Account Service">Create Account Service</a>
+                  </li>
+              </ul>
+          </li>
+      </div>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='aces-marketplace-api-docs'>ACES Marketplace API Docs</h1>
+<p>The ACES Marketplace API Specification defines the API Specification for interacting with ACES Marketplace instances.
+<a href="https://github.com/ark-aces/aces-marketplace-api#sdks">SDKs</a>
+are available in Java, Go, PHP, JavaScript, Python, and C#.</p>
+
+<p>ACES Marketplace instances allow service providers to register and track ACES Listener and ACES Service nodes into a Service Marketplace, and allows consumers to search and utilize services.</p>
+<h1 id='health'>Health</h1><h2 id='get-health'>Get Health</h2>
+<p>Get application health information.</p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s1">'http://localhost:8080/Health'</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="n">ServiceClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ServiceClient</span><span class="o">(</span><span class="s">"http://localhost"</span><span class="o">);</span>
+<span class="n">Health</span> <span class="n">health</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getHealth</span><span class="o">();</span>
+</code></pre>
+<blockquote>
+<p>Returned response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"up"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET http://localhost:8080/Health</code></p>
+<h1 id='listener-categories'>Listener Categories</h1><h2 id='get-listener-categories'>Get Listener Categories</h2>
+<p>Get a list of available Listener categories.</p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s1">'http://localhost:8080/listenerCategories'</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="n">ServiceClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ServiceClient</span><span class="o">(</span><span class="s">"http://localhost"</span><span class="o">);</span>
+<span class="n">ListenerCategories</span> <span class="n">listenerCategories</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getListenerCategories</span><span class="o">();</span>
+</code></pre>
+<blockquote>
+<p>Returned response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"listenerCategories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"BTC"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ETH"</span><span class="p">,</span><span class="w"> </span><span class="s2">"ARK"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET http://localhost:8080/listenerCategories</code></p>
+<h1 id='listeners'>Listeners</h1><h2 id='list-listeners'>List Listeners</h2>
+<p>Gets a page of Listeners.</p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="nv">url</span><span class="o">=</span><span class="s2">"http://localhost:8080/listeners"</span>
+<span class="nv">url</span><span class="o">=</span><span class="s2">"</span><span class="nv">$url</span><span class="s2">?pageSize=100"</span>
+<span class="nv">url</span><span class="o">=</span><span class="s2">"</span><span class="nv">$url</span><span class="s2">&amp;page=4"</span>
+curl -X GET <span class="s2">"</span><span class="nv">$url</span><span class="s2">"</span>  
+</code></pre><pre class="highlight java tab-java"><code><span class="n">ServiceClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ServiceClient</span><span class="o">(</span><span class="s">"http://localhost"</span><span class="o">);</span>
+
+<span class="n">ListenersRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ListenersRequest</span><span class="o">();</span>
+<span class="n">request</span><span class="o">.</span><span class="na">setCategory</span><span class="o">(</span><span class="s">"BTC"</span><span class="o">);</span>
+<span class="n">request</span><span class="o">.</span><span class="na">setSearch</span><span class="o">(</span><span class="s">"ACES_Mainnet"</span><span class="o">);</span>
+<span class="n">request</span><span class="o">.</span><span class="na">setPageSize</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>
+<span class="n">request</span><span class="o">.</span><span class="na">setPage</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+
+
+<span class="n">Page</span><span class="o">&lt;</span><span class="n">Listeners</span><span class="o">&gt;</span> <span class="n">listenersPage</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getListenersPage</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+</code></pre>
+<blockquote>
+<p>Returned response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"pageSize"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"totalItems: "</span><span class="mi">1</span><span class="s2">",
+  "</span><span class="err">items</span><span class="s2">": [
+    {
+      "</span><span class="err">id</span><span class="s2">": "</span><span class="mi">1</span><span class="s2">",
+      "</span><span class="err">url</span><span class="s2">": "</span><span class="err">https</span><span class="p">:</span><span class="err">//btc-listener-mainnet.arkaces.com</span><span class="s2">",
+      "</span><span class="err">name</span><span class="s2">": "</span><span class="err">ACES</span><span class="w"> </span><span class="err">BTC</span><span class="w"> </span><span class="err">Mainnet</span><span class="w"> </span><span class="err">Listener</span><span class="s2">",
+      "</span><span class="err">websiteUrl</span><span class="s2">": "</span><span class="err">https</span><span class="p">:</span><span class="err">//arkaces.com</span><span class="s2">",
+      "</span><span class="err">description</span><span class="s2">": "</span><span class="err">A</span><span class="w"> </span><span class="err">blockchain</span><span class="w"> </span><span class="err">listener</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">BTC</span><span class="w"> </span><span class="err">Mainnet</span><span class="s2">",
+      "</span><span class="err">authorizationType</span><span class="s2">": "</span><span class="err">httpBasic</span><span class="s2">",
+      "</span><span class="err">minArkStake</span><span class="s2">": "</span><span class="mi">100</span><span class="s2">",
+      "</span><span class="err">dailyArkFee</span><span class="s2">": "</span><span class="mi">0</span><span class="s2">",
+      "</span><span class="err">createdAt</span><span class="s2">": "</span><span class="mi">2017-11-01</span><span class="err">T</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">0</span><span class="mf">0.000</span><span class="err">Z</span><span class="s2">"
+    }
+  ]
+}
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET http://localhost:8080/listener?pageSize=100&amp;page=4&amp;category=BTC&amp;search=ACES_Mainnet</code></p>
+<h1 id='service-categories'>Service Categories</h1><h2 id='get-service-categories'>Get Service Categories</h2>
+<p>Get a list of available Service categories.</p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s1">'http://localhost:8080/serviceCategories'</span>
+</code></pre><pre class="highlight java tab-java"><code><span class="n">ServiceClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ServiceClient</span><span class="o">(</span><span class="s">"http://localhost"</span><span class="o">);</span>
+<span class="n">ServiceCategories</span> <span class="n">serviceCategories</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getServiceCategories</span><span class="o">();</span>
+</code></pre>
+<blockquote>
+<p>Returned response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"serviceCategories"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"Transfer"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Computation"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Storage"</span><span class="p">,</span><span class="w"> </span><span class="s2">"DNS"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Internet of Things"</span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET http://localhost:8080/serviceCategories</code></p>
+<h1 id='services'>Services</h1><h2 id='list-services'>List Services</h2>
+<p>Gets a page of Services.</p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="nv">url</span><span class="o">=</span><span class="s2">"http://localhost:8080/services"</span>
+<span class="nv">url</span><span class="o">=</span><span class="s2">"</span><span class="nv">$url</span><span class="s2">?category=Computation"</span>
+<span class="nv">url</span><span class="o">=</span><span class="s2">"</span><span class="nv">$url</span><span class="s2">?search=ACES"</span>
+<span class="nv">url</span><span class="o">=</span><span class="s2">"</span><span class="nv">$url</span><span class="s2">?pageSize=100"</span>
+<span class="nv">url</span><span class="o">=</span><span class="s2">"</span><span class="nv">$url</span><span class="s2">&amp;page=4"</span>
+curl -X GET <span class="s2">"</span><span class="nv">$url</span><span class="s2">"</span>  
+</code></pre><pre class="highlight java tab-java"><code><span class="n">ServiceClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ServiceClient</span><span class="o">(</span><span class="s">"http://localhost"</span><span class="o">);</span>
+
+<span class="n">ServicesListRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ServicesListRequest</span><span class="o">();</span>
+<span class="n">request</span><span class="o">.</span><span class="na">setCategory</span><span class="o">(</span><span class="s">"Computation"</span><span class="o">);</span>
+<span class="n">request</span><span class="o">.</span><span class="na">setSearch</span><span class="o">(</span><span class="s">"ACES"</span><span class="o">);</span>
+<span class="n">request</span><span class="o">.</span><span class="na">setPageSize</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>
+<span class="n">request</span><span class="o">.</span><span class="na">setPage</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+
+
+<span class="n">Page</span><span class="o">&lt;</span><span class="n">Services</span><span class="o">&gt;</span> <span class="n">servicesPage</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getServicesPage</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+</code></pre>
+<blockquote>
+<p>Returned response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"pageSize"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"totalItems: "</span><span class="mi">1</span><span class="s2">",
+  "</span><span class="err">items</span><span class="s2">": [
+    {
+      "</span><span class="err">id</span><span class="s2">": "</span><span class="mi">1</span><span class="s2">",
+      "</span><span class="err">url</span><span class="s2">": "</span><span class="err">https</span><span class="p">:</span><span class="err">//services.arkaces.com/computation</span><span class="s2">",
+      "</span><span class="err">name</span><span class="s2">": "</span><span class="err">ACES</span><span class="w"> </span><span class="err">Computation</span><span class="w"> </span><span class="err">Services</span><span class="s2">",
+      "</span><span class="err">version</span><span class="s2">": "</span><span class="mf">1.0</span><span class="s2">",
+      "</span><span class="err">description</span><span class="s2">": "</span><span class="err">A</span><span class="w"> </span><span class="err">blockchain</span><span class="w"> </span><span class="err">listener</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">BTC</span><span class="w"> </span><span class="err">Mainnet</span><span class="s2">",
+      "</span><span class="err">instructions</span><span class="s2">": "</span><span class="err">Usage</span><span class="w"> </span><span class="err">instructions</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">basic</span><span class="w"> </span><span class="err">html</span><span class="w"> </span><span class="err">format.</span><span class="s2">",
+      "</span><span class="err">websiteUrl</span><span class="s2">": "</span><span class="err">https</span><span class="p">:</span><span class="err">//arkaces.com</span><span class="s2">",
+      "</span><span class="err">type</span><span class="s2">":"</span><span class="err">onDemand</span><span class="s2">",
+      "</span><span class="err">inputSchema</span><span class="s2">":"</span><span class="err">Contract</span><span class="w"> </span><span class="err">input</span><span class="w"> </span><span class="err">schema</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">JSON</span><span class="w"> </span><span class="err">Schema</span><span class="w"> </span><span class="err">format.</span><span class="s2">",
+      "</span><span class="err">outputSchema</span><span class="s2">":"</span><span class="err">Contract</span><span class="w"> </span><span class="err">output</span><span class="w"> </span><span class="err">schema</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">JSON</span><span class="w"> </span><span class="err">Schema</span><span class="w"> </span><span class="err">format.</span><span class="s2">",
+      "</span><span class="err">createdAt</span><span class="s2">": "</span><span class="mi">2017-11-01</span><span class="err">T</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">0</span><span class="mf">0.000</span><span class="err">Z</span><span class="s2">"
+    }
+  ]
+}
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET http://localhost:8080/listener?pageSize=100&amp;page=1&amp;category=Computation&amp;search=ACES</code></p>
+<h2 id='get-service-by-id'>Get Service by id</h2>
+<p>Gets detailed information for a particular Service.</p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="nv">url</span><span class="o">=</span><span class="s2">"http://localhost:8080/services/{id}"</span>
+curl -X GET <span class="s2">"</span><span class="nv">$url</span><span class="s2">"</span>  
+</code></pre><pre class="highlight java tab-java"><code><span class="n">ServiceClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ServiceClient</span><span class="o">(</span><span class="s">"http://localhost"</span><span class="o">);</span>
+<span class="n">ServiceByIdRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ServiceByIdtRequest</span><span class="o">();</span>
+<span class="n">Page</span><span class="o">&lt;</span><span class="n">ServiceById</span><span class="o">&gt;</span> <span class="n">ServiceByIdPage</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getServiceByIdPage</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+</code></pre>
+<blockquote>
+<p>Returned response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://services.arkaces.com/computation"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ACES Computation Services"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A blockchain listener for BTC Mainnet"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"instructions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Usage instructions in basic html format."</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"websiteUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://arkaces.com"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="s2">"onDemand"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"inputSchema"</span><span class="p">:</span><span class="s2">"Contract input schema in JSON Schema format."</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"outputSchema"</span><span class="p">:</span><span class="s2">"Contract output schema in JSON Schema format."</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-11-01T00:00:00.000Z"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre><h2 id='get-service-contracts-by-id'>Get Service Contracts by id</h2>
+<p>Get a page of Contracts created under the current Account.</p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="nv">url</span><span class="o">=</span><span class="s2">"http://localhost:8080/services/{id}/contracts"</span>
+<span class="nv">url</span><span class="o">=</span><span class="s2">"</span><span class="nv">$url</span><span class="s2">?pageSize=100"</span>
+<span class="nv">url</span><span class="o">=</span><span class="s2">"</span><span class="nv">$url</span><span class="s2">&amp;page=4"</span>
+curl -X GET <span class="s2">"</span><span class="nv">$url</span><span class="s2">"</span>  
+</code></pre><pre class="highlight java tab-java"><code><span class="n">ServiceClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ServiceClient</span><span class="o">(</span><span class="s">"http://localhost"</span><span class="o">);</span>
+
+<span class="n">ServiceContractsRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ServiceContractsRequest</span><span class="o">();</span>
+<span class="n">request</span><span class="o">.</span><span class="na">setPageSize</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>
+<span class="n">request</span><span class="o">.</span><span class="na">setPage</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+
+
+<span class="n">Page</span><span class="o">&lt;</span><span class="n">ServiceContracts</span><span class="o">&gt;</span> <span class="n">serviceContractsPage</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getServiceContractsPage</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+</code></pre>
+<blockquote>
+<p>Returned response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"pageSize"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"totalItems: "</span><span class="mi">1</span><span class="s2">",
+  "</span><span class="err">items</span><span class="s2">": [
+    {
+      "</span><span class="err">id</span><span class="s2">": "</span><span class="mi">123</span><span class="s2">",
+      "</span><span class="err">serviceId</span><span class="s2">": "</span><span class="err">abc</span><span class="s2">",
+      "</span><span class="err">status</span><span class="s2">": "</span><span class="err">active</span><span class="s2">",
+      "</span><span class="err">results</span><span class="s2">": "</span><span class="err">service</span><span class="w"> </span><span class="err">outputSchema</span><span class="s2">"
+    }
+  ]
+}
+</span></code></pre><h2 id='create-service-contract'>Create Service Contract.</h2>
+<p>Creates a new Service Contract under the current Account.</p>
+<h1 id='contracts'>Contracts</h1><h2 id='get-service-contracts'>Get Service Contracts.</h2>
+<p>Get a page of Contracts created under the current Account.</p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="nv">url</span><span class="o">=</span><span class="s2">"http://localhost:8080/contracts"</span>
+<span class="nv">url</span><span class="o">=</span><span class="s2">"</span><span class="nv">$url</span><span class="s2">?name=serviceId"</span>
+<span class="nv">url</span><span class="o">=</span><span class="s2">"</span><span class="nv">$url</span><span class="s2">?pageSize=100"</span>
+<span class="nv">url</span><span class="o">=</span><span class="s2">"</span><span class="nv">$url</span><span class="s2">&amp;page=1"</span>
+curl -X GET <span class="s2">"</span><span class="nv">$url</span><span class="s2">"</span>  
+</code></pre><pre class="highlight java tab-java"><code><span class="n">ServiceClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ServiceClient</span><span class="o">(</span><span class="s">"http://localhost"</span><span class="o">);</span>
+
+<span class="n">ContractsListRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ContractsListRequest</span><span class="o">();</span>
+<span class="n">request</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="s">"serviceId"</span><span class="o">);</span>
+<span class="n">request</span><span class="o">.</span><span class="na">setPageSize</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>
+<span class="n">request</span><span class="o">.</span><span class="na">setPage</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+
+
+<span class="n">Page</span><span class="o">&lt;</span><span class="n">Contracts</span><span class="o">&gt;</span> <span class="n">contractsPage</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getContractsPage</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+</code></pre>
+<blockquote>
+<p>Returned response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"pageSize"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"totalItems: "</span><span class="mi">1</span><span class="s2">",
+  "</span><span class="err">items</span><span class="s2">": [
+    {
+      "</span><span class="err">id</span><span class="s2">": "</span><span class="mi">123</span><span class="s2">",
+      "</span><span class="err">serviceId</span><span class="s2">": "</span><span class="err">abc</span><span class="s2">",
+      "</span><span class="err">status</span><span class="s2">": "</span><span class="err">active</span><span class="s2">",
+      "</span><span class="err">results</span><span class="s2">": "</span><span class="err">service</span><span class="w"> </span><span class="err">outputSchema</span><span class="s2">"
+    }
+  ]
+}
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET http://localhost:8080/contracts?pageSize=100&amp;page=1</code></p>
+<h2 id='get-contract'>Get Contract</h2>
+<p>Gets detailed information for a particular Contract.</p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="nv">url</span><span class="o">=</span><span class="s2">"http://localhost:8080/contracts/{id}"</span>
+curl -X GET <span class="s2">"</span><span class="nv">$url</span><span class="s2">"</span>  
+</code></pre><pre class="highlight java tab-java"><code><span class="n">ServiceClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ServiceClient</span><span class="o">(</span><span class="s">"http://localhost"</span><span class="o">);</span>
+
+<span class="n">ContractRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ContractRequest</span><span class="o">();</span>
+
+<span class="n">Page</span><span class="o">&lt;</span><span class="n">Contract</span><span class="o">&gt;</span> <span class="n">contractPage</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getContractPage</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+</code></pre>
+<blockquote>
+<p>Returned response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"serviceId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abc"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"active"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="s2">"service outputSchema"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET http://localhost:8080/contracts/{id}</code></p>
+<h2 id='cancel-contract'>Cancel contract</h2>
+<p>Cancels a Contract.</p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="nv">url</span><span class="o">=</span><span class="s2">"http://localhost:8080/contracts/{id}/cancel"</span>
+curl -X GET <span class="s2">"</span><span class="nv">$url</span><span class="s2">"</span>  
+</code></pre><pre class="highlight java tab-java"><code><span class="n">ServiceClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ServiceClient</span><span class="o">(</span><span class="s">"http://localhost"</span><span class="o">);</span>
+
+<span class="n">ContractCancelRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ContractCancelRequest</span><span class="o">();</span>
+
+<span class="n">Page</span><span class="o">&lt;</span><span class="n">ContractCancel</span><span class="o">&gt;</span> <span class="n">contractCancelPage</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getContractCancelPage</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+</code></pre>
+<blockquote>
+<p>Returned response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-11-01T00:00:00.000Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET http://localhost:8080/contracts/{id}/cancel</code></p>
+<h2 id='create-ark-payment'>Create Ark Payment</h2>
+<p>Adds an Ark Payment for a Contract. The Contract must support the arkPayable interface.</p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="nv">url</span><span class="o">=</span><span class="s2">"http://localhost:8080/contracts/{id}/arkPayments"</span>
+<span class="nv">url</span><span class="o">=</span><span class="s2">"</span><span class="nv">$url</span><span class="s2">?type=full"</span>
+<span class="nv">url</span><span class="o">=</span><span class="s2">"</span><span class="nv">$url</span><span class="s2">?arkAmount=100"</span>
+curl -X GET <span class="s2">"</span><span class="nv">$url</span><span class="s2">"</span>  
+</code></pre><pre class="highlight java tab-java"><code><span class="n">ServiceClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ServiceClient</span><span class="o">(</span><span class="s">"http://localhost"</span><span class="o">);</span>
+
+<span class="n">ArkPayentRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArkPaymentRequest</span><span class="o">();</span>
+
+<span class="n">Page</span><span class="o">&lt;</span><span class="n">ArkPayment</span><span class="o">&gt;</span> <span class="n">arkPaymentPage</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getArkPaymentPage</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+</code></pre>
+<blockquote>
+<p>Returned response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-11-01T00:00:00.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"arkTransactionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"adf021a947a15f3ffbef9a06926f87c5d4f164d54fc76a42d7bff4cb33081d89"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"confirmations"</span><span class="p">:</span><span class="w"> </span><span class="mi">51</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET http://localhost:8080/contracts/{id}/arkPayments?type=full&amp;arkAmount=100</code></p>
+<h1 id='account'>Account</h1><h2 id='list-account-users'>List Account Users</h2>
+<p>Gets a page of Users registered under the current Account.</p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="nv">url</span><span class="o">=</span><span class="s2">"http://localhost:8080/account/user"</span>
+<span class="nv">url</span><span class="o">=</span><span class="s2">"</span><span class="nv">$url</span><span class="s2">?pageSize=100"</span>
+<span class="nv">url</span><span class="o">=</span><span class="s2">"</span><span class="nv">$url</span><span class="s2">&amp;page=1"</span>
+curl -X GET <span class="s2">"</span><span class="nv">$url</span><span class="s2">"</span>  
+</code></pre><pre class="highlight java tab-java"><code><span class="n">ServiceClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ServiceClient</span><span class="o">(</span><span class="s">"http://localhost"</span><span class="o">);</span>
+
+<span class="n">AccountUsersRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AccountUsersRequest</span><span class="o">();</span>
+<span class="n">request</span><span class="o">.</span><span class="na">setPageSize</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>
+<span class="n">request</span><span class="o">.</span><span class="na">setPage</span><span class="o">(</span><span class="mi">1</span><span class="o">);</span>
+
+
+<span class="n">Page</span><span class="o">&lt;</span><span class="n">AccountUsers</span><span class="o">&gt;</span> <span class="n">accountUsersPage</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getAccountUsersPage</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+</code></pre>
+<blockquote>
+<p>Returned response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"pageSize"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"totalItems: "</span><span class="mi">1</span><span class="s2">",
+  "</span><span class="err">items</span><span class="s2">": [
+    {
+      "</span><span class="err">id</span><span class="s2">": "</span><span class="mi">1</span><span class="s2">",
+      "</span><span class="err">name</span><span class="s2">": "</span><span class="err">ACES</span><span class="w"> </span><span class="err">BTC</span><span class="w"> </span><span class="err">Mainnet</span><span class="w"> </span><span class="err">Listener</span><span class="s2">",
+      "</span><span class="err">emailAddress</span><span class="s2">": "</span><span class="err">joe@example.com</span><span class="s2">",
+      "</span><span class="err">status</span><span class="s2">": "</span><span class="err">active</span><span class="s2">",
+      "</span><span class="err">createdAt</span><span class="s2">": "</span><span class="mi">2017-11-01</span><span class="err">T</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">0</span><span class="mf">0.000</span><span class="err">Z</span><span class="s2">"
+    }
+  ]
+}
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET http://localhost:8080/account/user</code></p>
+<h2 id='get-ark-wallet'>Get Ark Wallet</h2>
+<p>Get Ark Wallet attached to the current Account.</p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="nv">url</span><span class="o">=</span><span class="s2">"http://localhost:8080/account/arkWallet"</span>
+curl -X GET <span class="s2">"</span><span class="nv">$url</span><span class="s2">"</span>  
+</code></pre><pre class="highlight java tab-java"><code><span class="n">ServiceClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ServiceClient</span><span class="o">(</span><span class="s">"http://localhost"</span><span class="o">);</span>
+
+<span class="n">AccountWalletRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AccountWalletRequest</span><span class="o">();</span>
+
+<span class="n">Page</span><span class="o">&lt;</span><span class="n">AccountWallet</span><span class="o">&gt;</span> <span class="n">accountWalletPage</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getAccountWalletPage</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+</code></pre>
+<blockquote>
+<p>Returned response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ARVpfb7dcyXefUFhfs8wP5v78yM9AokGi6"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"balance"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"createdAt"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-11-01T00:00:00.000Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET http://localhost:8080/account/arkWallet</code></p>
+<h2 id='list-account-ark-wallet-transactions'>List Account Ark Wallet Transactions</h2>
+<p>Gets a page of Ark Wallet transactions for the current Account.</p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="nv">url</span><span class="o">=</span><span class="s2">"http://localhost:8080/account/arkWallet/transactions"</span>
+<span class="nv">url</span><span class="o">=</span><span class="s2">"</span><span class="nv">$url</span><span class="s2">?pageSize=100"</span>
+<span class="nv">url</span><span class="o">=</span><span class="s2">"</span><span class="nv">$url</span><span class="s2">&amp;page=1"</span>
+curl -X GET <span class="s2">"</span><span class="nv">$url</span><span class="s2">"</span>  
+</code></pre><pre class="highlight java tab-java"><code><span class="n">ServiceClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ServiceClient</span><span class="o">(</span><span class="s">"http://localhost"</span><span class="o">);</span>
+
+<span class="n">AccountWalletRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AccountWalletRequest</span><span class="o">();</span>
+
+<span class="n">Page</span><span class="o">&lt;</span><span class="n">AccountWallet</span><span class="o">&gt;</span> <span class="n">accountWalletPage</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getAccountWalletPage</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+</code></pre>
+<blockquote>
+<p>Returned response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"pageSize"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"totalItems: "</span><span class="mi">1</span><span class="s2">",
+  "</span><span class="err">items</span><span class="s2">": [
+    {
+      "</span><span class="err">amount</span><span class="s2">": "</span><span class="mi">42</span><span class="s2">",
+      "</span><span class="err">createdAt</span><span class="s2">": "</span><span class="mi">2017-11-01</span><span class="err">T</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">0</span><span class="mf">0.000</span><span class="err">Z</span><span class="s2">",
+      "</span><span class="err">arkTransactionId</span><span class="s2">": "</span><span class="err">adf</span><span class="mi">021</span><span class="err">a</span><span class="mi">947</span><span class="err">a</span><span class="mi">15</span><span class="err">f</span><span class="mi">3</span><span class="err">ffbef</span><span class="mi">9</span><span class="err">a</span><span class="mi">06926</span><span class="err">f</span><span class="mi">87</span><span class="err">c</span><span class="mi">5</span><span class="err">d</span><span class="mi">4</span><span class="err">f</span><span class="mi">164</span><span class="err">d</span><span class="mi">54</span><span class="err">fc</span><span class="mi">76</span><span class="err">a</span><span class="mi">42</span><span class="err">d</span><span class="mi">7</span><span class="err">bff</span><span class="mi">4</span><span class="err">cb</span><span class="mi">33081</span><span class="err">d</span><span class="mi">89</span><span class="s2">",
+      "</span><span class="err">confirmations</span><span class="s2">":"</span><span class="mi">51</span><span class="s2">"
+    }
+  ]
+}
+</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET http://localhost:8080/account/arkWallet/transactions</code></p>
+<h2 id='list-account-listeners'>List Account Listeners</h2>
+<p>Gets a page of Listener registered under the current Account.</p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="nv">url</span><span class="o">=</span><span class="s2">"http://localhost:8080/account/listeners"</span>
+<span class="nv">url</span><span class="o">=</span><span class="s2">"</span><span class="nv">$url</span><span class="s2">?category=BTC"</span>
+<span class="nv">url</span><span class="o">=</span><span class="s2">"</span><span class="nv">$url</span><span class="s2">?search=ACES"</span>
+<span class="nv">url</span><span class="o">=</span><span class="s2">"</span><span class="nv">$url</span><span class="s2">?pageSize=100"</span>
+<span class="nv">url</span><span class="o">=</span><span class="s2">"</span><span class="nv">$url</span><span class="s2">&amp;page=1"</span>
+curl -X GET <span class="s2">"</span><span class="nv">$url</span><span class="s2">"</span>  
+</code></pre><pre class="highlight java tab-java"><code><span class="n">ServiceClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ServiceClient</span><span class="o">(</span><span class="s">"http://localhost"</span><span class="o">);</span>
+
+<span class="n">AccountListenersRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AccountListenersRequest</span><span class="o">();</span>
+
+<span class="n">Page</span><span class="o">&lt;</span><span class="n">AccountListeners</span><span class="o">&gt;</span> <span class="n">accountListenerspage</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getAccountListenersPage</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+</code></pre>
+<blockquote>
+<p>Returned response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"pageSize"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"totalItems: "</span><span class="mi">1</span><span class="s2">",
+  "</span><span class="err">items</span><span class="s2">": [
+    {
+      "</span><span class="err">id</span><span class="s2">": "</span><span class="mi">1</span><span class="s2">",
+      "</span><span class="err">url</span><span class="s2">": "</span><span class="err">https</span><span class="p">:</span><span class="err">//btc-listener-mainnet.arkaces.com</span><span class="s2">",
+      "</span><span class="err">name</span><span class="s2">": "</span><span class="err">ACES</span><span class="w"> </span><span class="err">BTC</span><span class="w"> </span><span class="err">Mainnet</span><span class="w"> </span><span class="err">Listener</span><span class="s2">",
+      "</span><span class="err">websiteUrl</span><span class="s2">": "</span><span class="err">https</span><span class="p">:</span><span class="err">//arkaces.com</span><span class="s2">",
+      "</span><span class="err">description</span><span class="s2">": "</span><span class="err">A</span><span class="w"> </span><span class="err">blockchain</span><span class="w"> </span><span class="err">listener</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">BTC</span><span class="w"> </span><span class="err">Mainnet</span><span class="s2">",
+      "</span><span class="err">authorizationType</span><span class="s2">": "</span><span class="err">httpBasic</span><span class="s2">",
+      "</span><span class="err">minArkStake</span><span class="s2">": "</span><span class="mi">100</span><span class="s2">",
+      "</span><span class="err">dailyArkFee</span><span class="s2">": "</span><span class="mi">0</span><span class="s2">",
+      "</span><span class="err">createdAt</span><span class="s2">": "</span><span class="mi">2017-11-01</span><span class="err">T</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">0</span><span class="mf">0.000</span><span class="err">Z</span><span class="s2">"
+    }
+  ]
+}
+</span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET http://localhost:8080/account/listeners</code></p>
+<h2 id='create-listener'>Create Listener</h2>
+<p>Creates a Listener registered under the current Account.</p>
+<h2 id='list-account-services'>List Account Services</h2>
+<p>Gets a page of Services registered under the current Account.</p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="nv">url</span><span class="o">=</span><span class="s2">"http://localhost:8080/account/services"</span>
+<span class="nv">url</span><span class="o">=</span><span class="s2">"</span><span class="nv">$url</span><span class="s2">?category=BTC"</span>
+<span class="nv">url</span><span class="o">=</span><span class="s2">"</span><span class="nv">$url</span><span class="s2">?search=ACES"</span>
+<span class="nv">url</span><span class="o">=</span><span class="s2">"</span><span class="nv">$url</span><span class="s2">?pageSize=100"</span>
+<span class="nv">url</span><span class="o">=</span><span class="s2">"</span><span class="nv">$url</span><span class="s2">&amp;page=1"</span>
+curl -X GET <span class="s2">"</span><span class="nv">$url</span><span class="s2">"</span>  
+</code></pre><pre class="highlight java tab-java"><code><span class="n">ServiceClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ServiceClient</span><span class="o">(</span><span class="s">"http://localhost"</span><span class="o">);</span>
+
+<span class="n">AccountListenersRequest</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">AccountListenersRequest</span><span class="o">();</span>
+
+<span class="n">Page</span><span class="o">&lt;</span><span class="n">AccountListeners</span><span class="o">&gt;</span> <span class="n">accountListenerspage</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">getAccountListenersPage</span><span class="o">(</span><span class="n">request</span><span class="o">);</span>
+</code></pre>
+<blockquote>
+<p>Returned response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"pageSize"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"totalItems: "</span><span class="mi">1</span><span class="s2">",
+  "</span><span class="err">items</span><span class="s2">": [
+       {
+          "</span><span class="err">id</span><span class="s2">": "</span><span class="mi">1</span><span class="s2">",
+          "</span><span class="err">url</span><span class="s2">": "</span><span class="err">https</span><span class="p">:</span><span class="err">//services.arkaces.com/computation</span><span class="s2">",
+          "</span><span class="err">name</span><span class="s2">": "</span><span class="err">ACES</span><span class="w"> </span><span class="err">Computation</span><span class="w"> </span><span class="err">Services</span><span class="s2">",
+          "</span><span class="err">version</span><span class="s2">": "</span><span class="mf">1.0</span><span class="s2">",
+          "</span><span class="err">description</span><span class="s2">": "</span><span class="err">A</span><span class="w"> </span><span class="err">blockchain</span><span class="w"> </span><span class="err">listener</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">BTC</span><span class="w"> </span><span class="err">Mainnet</span><span class="s2">",
+          "</span><span class="err">instructions</span><span class="s2">": "</span><span class="err">Usage</span><span class="w"> </span><span class="err">instructions</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">basic</span><span class="w"> </span><span class="err">html</span><span class="w"> </span><span class="err">format.</span><span class="s2">",
+          "</span><span class="err">websiteUrl</span><span class="s2">": "</span><span class="err">https</span><span class="p">:</span><span class="err">//arkaces.com</span><span class="s2">",
+          "</span><span class="err">type</span><span class="s2">":"</span><span class="err">onDemand</span><span class="s2">",
+          "</span><span class="err">inputSchema</span><span class="s2">":"</span><span class="err">Contract</span><span class="w"> </span><span class="err">input</span><span class="w"> </span><span class="err">schema</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">JSON</span><span class="w"> </span><span class="err">Schema</span><span class="w"> </span><span class="err">format.</span><span class="s2">",
+          "</span><span class="err">outputSchema</span><span class="s2">":"</span><span class="err">Contract</span><span class="w"> </span><span class="err">output</span><span class="w"> </span><span class="err">schema</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">JSON</span><span class="w"> </span><span class="err">Schema</span><span class="w"> </span><span class="err">format.</span><span class="s2">",
+          "</span><span class="err">createdAt</span><span class="s2">": "</span><span class="mi">2017-11-01</span><span class="err">T</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">0</span><span class="mf">0.000</span><span class="err">Z</span><span class="s2">"
+        }
+  ]
+}
+</span></code></pre><h3 id='http-request-5'>HTTP Request</h3>
+<p><code>GET http://localhost:8080/account/services</code></p>
+<h2 id='create-account-service'>Create Account Service</h2>
+<p>Register a new Service under an Account.</p>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">curl</a>
+                <a href="#" data-language-name="java">java</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
